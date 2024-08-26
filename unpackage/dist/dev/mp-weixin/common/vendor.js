@@ -29636,6 +29636,10 @@ var store = new _vuex.default.Store({
                 res = _context.sent;
                 if (res && res.code === 200 && res.data) {
                   commit('updateUserInfo', res.data);
+                } else {
+                  uni.reLaunch({
+                    url: '/pages/login/login'
+                  });
                 }
               case 5:
               case "end":

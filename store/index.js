@@ -86,9 +86,13 @@ const store = new Vuex.Store({
 						state
 					}) {
 						const res = await API.getUserInfo()
-							if (res && res.code === 200 && res.data) {
-								commit('updateUserInfo', res.data)
-							}
+						if (res && res.code === 200 && res.data) {
+							commit('updateUserInfo', res.data)
+						} else {
+							uni.reLaunch({
+								url: '/pages/login/login'
+							})
+						}
 					},
 					// lazy loading openid
 					getUserOpenId: async function({
