@@ -55,8 +55,8 @@
 						username: res.username,
 						password: res.password
 					}).then(res => {
-						if (res && res.token) {
-							const token = `Bearer ${res.token}`
+						if (res && res.code === 200) {
+							const token = `Bearer ${res.data.token}`
 							uni.setStorageSync('token', token)
 							uni.reLaunch({
 								url: '/pages/home/home'
