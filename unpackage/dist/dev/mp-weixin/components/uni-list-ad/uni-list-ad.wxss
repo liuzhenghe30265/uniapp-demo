@@ -1,0 +1,32 @@
+
+.uni-list-ad.data-v-c7ed94a0 {
+	position: relative;
+	border: 1px red solid;
+}
+.uni-list--border.data-v-c7ed94a0 {
+	position: relative;
+	padding-bottom: 1px;
+
+
+
+
+
+	margin-left: 15px;
+}
+.uni-list--border.data-v-c7ed94a0:after {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 1px;
+	content: "";
+	-webkit-transform: scaleY(0.5);
+	transform: scaleY(0.5);
+	background-color: #e5e5e5;
+}
+.uni-list-item--first.data-v-c7ed94a0:after {
+	height: 0px;
+}
+
+
+

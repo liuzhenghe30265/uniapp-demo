@@ -1,0 +1,1 @@
+<view class="uni-list-ad data-v-c7ed94a0"><block wx:if="{{borderShow}}"><view class="{{['data-v-c7ed94a0',(border)?'uni-list--border':'',(isFirstChild)?'uni-list-item--first':'']}}"></view></block></view>

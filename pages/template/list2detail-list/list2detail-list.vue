@@ -20,7 +20,7 @@
 				</view>
 				<!-- #ifdef APP-PLUS -->
 				<view class="ad-view" v-if="(index > 0 && (index+1) % 10 == 0)">
-					<ad :adpid="adpid" @error="aderror"></ad>
+					<!-- <ad :adpid="adpid" @error="aderror"></ad> -->
 				</view>
 				<!-- #endif -->
 			</block>

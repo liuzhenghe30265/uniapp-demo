@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "uni-section": "/components/uni-section/uni-section",
+    "uni-list": "/components/uni-list/uni-list",
+    "uni-list-ad": "/components/uni-list-ad/uni-list-ad",
+    "uni-list-item": "/components/uni-list-item/uni-list-item"
+  }
+}
