@@ -15,18 +15,27 @@ const request = (url = '', reqData = {}, type = 'GET', header = {
 			}, reqData),
 			header: header,
 			dataType: 'json',
-		}).then((response) => {
-			let [error, res] = response
-			if (res.statusCode === 401 || (res.data && res.data.flag && res.data.flag === 401)) {
-				uni.reLaunch({
-					url: '/pages/login/login'
+			success: (res) => {
+				if (res.statusCode === 200) {
+					uni.hideLoading()
+					resolve(res.data)
+				} else if (res.statusCode === 401) {
+					uni.reLaunch({
+						url: '/pages/login/login'
+					})
+				} else {
+					reject(res.errMsg)
+				}
+			},
+			fail: (err) => {
+				uni.hideLoading()
+				uni.showToast({
+					icon: 'error',
+					title: err.errMsg,
+					duration: 2000
 				})
+				reject(err)
 			}
-			resolve(res.data)
-			uni.hideLoading()
-		}).catch(error => {
-			let [err, res] = error
-			reject(err)
 		})
 	})
 }

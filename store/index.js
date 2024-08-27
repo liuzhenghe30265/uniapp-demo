@@ -81,21 +81,21 @@ const store = new Vuex.Store({
 					}
 				},
 				actions: {
-					getUserInfo: async function({
+					getUserInfo: async function ({
 						commit,
 						state
 					}) {
-						const res = await API.getUserInfo()
-						if (res && res.code === 200 && res.data) {
-							commit('updateUserInfo', res.data)
-						} else {
-							uni.reLaunch({
-								url: '/pages/login/login'
-							})
+						try {
+							const res = await API.getUserInfo()
+							if (res && res.code === 200 && res.data) {
+								commit('updateUserInfo', res.data)
+							}
+						} catch (error) {
+							console.log(error)
 						}
 					},
 					// lazy loading openid
-					getUserOpenId: async function({
+					getUserOpenId: async function ({
 						commit,
 						state
 					}) {
@@ -106,7 +106,7 @@ const store = new Vuex.Store({
 								uni.login({
 									success: (data) => {
 										commit('login')
-										setTimeout(function() { //模拟异步请求服务器获取 openid
+										setTimeout(function () { //模拟异步请求服务器获取 openid
 											const openid = '123456789'
 											console.log(
 												'uni.request mock openid[' +
@@ -124,7 +124,7 @@ const store = new Vuex.Store({
 							}
 						})
 					},
-					getPhoneNumber: function({
+					getPhoneNumber: function ({
 						commit
 					}, univerifyInfo) {
 						return new Promise((resolve, reject) => {
